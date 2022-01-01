@@ -6,16 +6,19 @@ const EditApplicant = () => {
 
   let parems = useParams();
 
-    const [ applicantData, setApplicantData] = useState({
-        studentName: "",
-        registrationNumber: ""
-    })
+  const [ applicantData, setApplicantData] = useState({
+    studentName: "",
+    registrationNumber: "",
+    studentGender: "Male",
+    preferedHostel: "Johar Hall",
+    imageUrl: "",
+})
 
     useEffect(() => {
       getApplicantDetails(parems.id);
     } ,[]);
 
-    const { studentName, registrationNumber } = applicantData;
+    const { studentName, registrationNumber, studentGender, preferedHostel, imageUrl } = applicantData;
 
     const handleChannge = (e) => {
         setApplicantData( {...applicantData, [e.target.name]: e.target.value } )
@@ -49,6 +52,38 @@ const EditApplicant = () => {
           className="form-control mb-3"
           value={applicantData.registrationNumber}
           name="registrationNumber"
+          onChange={(e) => handleChannge(e)}
+        />
+
+        <label className="mb-2">Student Gender</label>
+        <select
+          className="form-select"
+          value={applicantData.studentGender}
+          name="studentGender"
+          onChange={(e) => handleChannge(e)}
+        >
+          <option selected value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select><br/>
+
+        <label className="mb-2">Preffered Hostel</label>
+        <select
+          className="form-select"
+          value={applicantData.preferedHostel}
+          name="preferedHostel"
+          onChange={(e) => handleChannge(e)}
+        >
+          <option selected value="Johar Hall">Johar Hall</option>
+          <option value="MA Jinah Hall">MA Jinah Hall</option>
+          <option value="Jupiter Hall">Jupiter Hall</option>
+        </select><br/>
+
+        <label className="mb-2">Image URl</label>
+        <input
+          type="text"
+          className="form-control mb-3"
+          value={applicantData.imageUrl}
+          name="imageUrl"
           onChange={(e) => handleChannge(e)}
         />
 

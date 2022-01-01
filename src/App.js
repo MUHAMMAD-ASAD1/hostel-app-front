@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import AddApplicant from './components/AddApplicant';
 import ViewApplicant from './components/ViewApplicant';
 import EditApplicant from './components/EditApplicant';
+import ViewApplicantData from './components/ViewApplicantData';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/hostelApplicants" element={<AddApplicant />} />
         <Route path="/viewApplicants" element={<ViewApplicant />} />
         <Route path="/editApplicants/:id" element={<EditApplicant />} />
+        <Route path="/viewApplicantDetail/:id" element={<ViewApplicantData />} />
       </Routes>
     </div>
   );

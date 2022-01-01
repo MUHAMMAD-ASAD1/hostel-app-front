@@ -5,10 +5,13 @@ const AddApplicant = () => {
 
     const [ applicantData, setApplicantData] = useState({
         studentName: "",
-        registrationNumber: ""
+        registrationNumber: "",
+        studentGender: "Male",
+        preferedHostel: "Johar Hall",
+        imageUrl: "",
     })
 
-    const { studentName, registrationNumber } = applicantData;
+    const { studentName, registrationNumber, studentGender, preferedHostel, imageUrl } = applicantData;
 
     const handleChannge = (e) => {
         setApplicantData( {...applicantData, [e.target.name]: e.target.value } )
@@ -35,6 +38,35 @@ const AddApplicant = () => {
           type="text"
           className="form-control mb-3"
           name="registrationNumber"
+          onChange={(e) => handleChannge(e)}
+        />
+
+        <label className="mb-2">Student Gender</label>
+        <select
+          className="form-select"
+          name="studentGender"
+          onChange={(e) => handleChannge(e)}
+        >
+          <option selected value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select><br/>
+
+        <label className="mb-2">Preffered Hostel</label>
+        <select
+          className="form-select"
+          name="preferedHostel"
+          onChange={(e) => handleChannge(e)}
+        >
+          <option selected value="Johar Hall">Johar Hall</option>
+          <option value="MA Jinah Hall">MA Jinah Hall</option>
+          <option value="Jupiter Hall">Jupiter Hall</option>
+        </select><br/>
+
+        <label className="mb-2">Image URl</label>
+        <input
+          type="text"
+          className="form-control mb-3"
+          name="imageUrl"
           onChange={(e) => handleChannge(e)}
         />
 

@@ -26,6 +26,10 @@ const ViewApplicant = () => {
     navigate(`/editApplicants/${id}`);
   }
 
+  const viewApplicatDetails = (id) => {
+    navigate(`/viewApplicantDetail/${id}`);
+  }
+
   return (
     <div className="col-md-6 position-absolute start-50 translate-middle-x mt-5">
       <table className="table">
@@ -33,6 +37,8 @@ const ViewApplicant = () => {
           <tr>
             <th scope="col">Student Name</th>
             <th scope="col">Registration Number</th>
+            <th scope="col">Studetn Gender</th>
+            <th scope="col">Prefered Hostel</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -41,8 +47,11 @@ const ViewApplicant = () => {
             <tr key={i}>
               <td>{details.studentName}</td>
               <td>{details.registrationNumber}</td>
-              <td><button onClick={()=> {deleteApplicatDetails(details._id)}}>Delete</button></td>
+              <td>{details.studentGender}</td>
+              <td>{details.preferedHostel}</td>
+              <td><button onClick={()=> {viewApplicatDetails(details._id)}}>Card</button></td>
               <td><button onClick={()=> {editApplicatDetails(details._id)}}>Edit</button></td>
+              <td><button onClick={()=> {deleteApplicatDetails(details._id)}}>Delete</button></td>
             </tr>
           ))}
         </tbody>
