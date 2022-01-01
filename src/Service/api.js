@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "http://localhost:5000";
+const url = "https://hostel-app-api.herokuapp.com";
 
 export const getApplicationById = async (id) => {
   return await axios.get(`${url}/hostelApplicants/${id}`);
